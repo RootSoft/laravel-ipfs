@@ -14,7 +14,7 @@ class IPFSServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/config/ipfs.php', 'ipfs');
+        $this->mergeConfigFrom(__DIR__.'../config/ipfs.php', 'ipfs');
 
         $this->app->singleton('ipfs', function ($app) {
             $baseUrl = config('ipfs.ipfs.base_url', '127.0.0.1');
@@ -29,7 +29,7 @@ class IPFSServiceProvider extends ServiceProvider
         // php artisan vendor:publish --provider="Rootsoft\IPFS\IPFSServiceProvider" --tag="config"
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/config/ipfs.php' => config_path('ipfs.php'),
+                __DIR__.'../config/ipfs.php' => config_path('ipfs.php'),
             ], 'config');
         }
     }
