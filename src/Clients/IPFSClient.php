@@ -65,27 +65,7 @@ class IPFSClient
         ]);
     }
 
-    /**
-     * Get the timeout.
-     *
-     * @return int
-     */
-    public function getTimeout()
-    {
-        return $this->timeout;
-    }
-
-    /**
-     * Get the version.
-     *
-     * @return int
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    public static function format_url(string $baseUrl)
+    private static function format_url(string $baseUrl)
     {
         return rtrim($baseUrl, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
     }
