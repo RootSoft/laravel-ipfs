@@ -19,8 +19,9 @@ class IPFSServiceProvider extends ServiceProvider
         $this->app->singleton('ipfs', function ($app) {
             $baseUrl = config('ipfs.ipfs.base_url', '127.0.0.1');
             $port = config('ipfs.ipfs.port', 5001);
+            $bearerToken = config('ipfs.ipfs.bearer_token', '');
 
-            return new IPFSClient($baseUrl, $port);
+            return new IPFSClient($baseUrl, $port, $bearerToken);
         });
     }
 

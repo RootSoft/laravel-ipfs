@@ -45,10 +45,10 @@ class IPFSClient
      *
      * @param string $baseUrl
      * @param int $port
+     * @param string $bearerToken
      * @param int $timeout
-     * @param bool $debug
      */
-    public function __construct(string $baseUrl, int $port, int $timeout = 0)
+    public function __construct(string $baseUrl, int $port, string $bearerToken = '', int $timeout = 0)
     {
         $this->baseUrl = $baseUrl;
         $this->port = $port;
@@ -61,13 +61,14 @@ class IPFSClient
             'headers' => [
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
+                'Authorization' => "Bearer $bearerToken",
             ],
         ]);
     }
 
     private static function format_url(string $baseUrl)
     {
-        return rtrim($baseUrl, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+        return rtrim($baseUrl, '/') . '/';
     }
 
     /**

@@ -17,6 +17,7 @@ return [
     'ipfs' => [
         'base_url' => '127.0.0.1',
         'port' => 5001,
+        'bearer_token' => '',
     ],
 
 ];
