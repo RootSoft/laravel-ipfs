@@ -1,3 +1,4 @@
+
 <p align="center"> 
 <img src="https://miro.medium.com/max/638/0*o30AAwcHRvsA840O.jpg">
 </p>
@@ -66,14 +67,27 @@ return [
 ];
 ```
 
-Now you can use the ```IPFS``` Facade!
-
+Now you can use the ```IPFS``` Facade! 
+Sample Controller -  DemoIPFSController
 ```php
-$fileHash = IPFS::add($collectible->get(), $fileName, ['only-hash' => true])['Hash'];
+<?php
+
+namespace App\Http\Controllers;
+
+use Rootsoft\IPFS\IPFSFacade as IPFS;
+
+class DemoIPFSController extends Controller{
+	public  function  index(){
+	  $fileHash = IPFS::add('Hello World')['Hash'];
+	  dd($fileHash);
+	}
+}
 ```
 
 ## Methods
 
+Since this an awesome wrapper for Laravel applications, you can check out the methods here. https://github.com/cloutier/php-ipfs-api 
+add, cat, ls, size, pinAdd, pinRm and so on.
 
 ## Changelog
 
